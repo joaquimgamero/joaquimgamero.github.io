@@ -37,6 +37,10 @@ h1 {
     max-width: 35vw;
 }
 
+.subtitle {
+    margin-bottom: 5vh;
+}
+
 .skill {
     font-size: x-small;
     border: 1px solid black;
