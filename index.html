@@ -19,6 +19,12 @@
                 <h3>
                     I'm a full-stack developer 👽
                 </h3>
+                <div>
+                    <a href="https://github.com/joaquimgamero"><img class="social-icon"
+                            src="img/GitHub-Mark-32px.png"></a>
+                    <a href="https://www.linkedin.com/in/joaquim-gamero-burgos/"><img class="social-icon"
+                            src="img/LI-In-Bug.png"></a>
+                </div>
                 <p>
                     I like building stuff, specially with <strong>JavaScript</strong> and <strong>C#</strong>. I like
                     data visualization, like
@@ -27,7 +33,7 @@
                 <p>
                     I've been working on tech companies as a developer for almost three years now. This time has
                     yielded a diverse skillset that touches almost everything in the DevOps cycle. Here's a partial
-                    list.
+                    list:
                 </p>
                 <p>
                     <span class="skill">C#</span>
@@ -40,10 +46,10 @@
                     <span class="skill">Continuous testing</span>
                 </p>
                 <h3>
-                    View <a href="JoaquimGamero2020.pdf" target="_blank">my résumé</a>
+                    You can view here <a href="JoaquimGamero2020.pdf" target="_blank">my résumé</a>.
                 </h3>
                 <h3>
-                    To get in touch, write to <a href="mailto:gb.joaquim@gmail.com">gb.joaquim@gmail.com</a>
+                    To get in touch, write to <a href="mailto:gb.joaquim@gmail.com">gb.joaquim@gmail.com</a>.
                 </h3>
             </div>
         </div>
@@ -56,12 +62,14 @@
             let scl = 20;
             let w = 1400;
             let h = 1000;
-            let maxNoiseX, maxNoiseY;
+            let maxNoiseX = 1000;
+            let maxNoiseY = 400;
 
             onmousemove = function (e) {
                 maxNoiseX = e.clientX;
                 maxNoiseY = e.clientY;
             }
+
 
             let flying = 0;
 
@@ -91,8 +99,8 @@
                                 p.noise(xoff, yoff),
                                 0,
                                 1,
-                                maxNoiseX ? (maxNoiseX / w) : 0,
-                                maxNoiseY ? maxNoiseY * 0.75 : 0);
+                                maxNoiseX ? (maxNoiseX / w) : 1000,
+                                maxNoiseY ? maxNoiseY * 0.75 : 300);
                         xoff += 0.125;
                     }
                     yoff += 0.125;
