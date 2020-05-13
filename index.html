@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <title>Joaquim Gamero</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- P5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="flex-container">
+        <div id='3d'></div>
+        <div class="flex-item">
+            <div class="main">
+                <h1>I'm Joaquim Gamero</h1>
+                <h3>
+                    I'm a full-stack developer 👽
+                </h3>
+                <p>
+                    I like building stuff, specially with <strong>JavaScript</strong> and <strong>C#</strong>. I like
+                    data visualization, like
+                    this 3D perlin noise terrain generator you can see on the left.
+                </p>
+                <p>
+                    I've been working on tech companies as a developer for almost three years now. This time has
+                    yielded a diverse skillset that touches almost everything in the DevOps cycle. Here's a partial
+                    list.
+                </p>
+                <p>
+                    <span class="skill">C#</span>
+                    <span class="skill">.NET Core</span>
+                    <span class="skill">Angular</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Deployment automation</span>
+                    <span class="skill">Source control (Git)</span>
+                    <span class="skill">Cloud platforms (Azure)</span>
+                    <span class="skill">Continuous testing</span>
+                </p>
+                <h3>
+                    View <a href="JoaquimGamero2020.pdf" target="_blank">my résumé</a>
+                </h3>
+                <h3>
+                    To get in touch, write to <a href="mailto:gb.joaquim@gmail.com">gb.joaquim@gmail.com</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Perlin noise 3D -->
+    <script>
+        let sketch = function (p) {
+            let cols, rows;
+            let scl = 20;
+            let w = 1400;
+            let h = 1000;
+            let maxNoiseX, maxNoiseY;
+
+            onmousemove = function (e) {
+                maxNoiseX = e.clientX;
+                maxNoiseY = e.clientY;
+            }
+
+            let flying = 0;
+
+            let terrain = [];
+
+            p.setup = function () {
+                p.createCanvas(600, 600, p.WEBGL);
+                cols = w / scl;
+                rows = h / scl;
+
+                for (let x = 0; x < cols; x++) {
+                    terrain[x] = [];
+                    for (let y = 0; y < rows; y++) {
+                        terrain[x][y] = 0; //specify a default value for now
+                    }
+                }
+            }
+
+            p.draw = function () {
+                flying -= 0.1;
+                let yoff = flying;
+                for (let y = 0; y < rows; y++) {
+                    let xoff = 0;
+                    for (let x = 0; x < cols; x++) {
+                        terrain[x][y] =
+                            p.map(
+                                p.noise(xoff, yoff),
+                                0,
+                                1,
+                                maxNoiseX ? (maxNoiseX / w) : 0,
+                                maxNoiseY ? maxNoiseY * 0.75 : 0);
+                        xoff += 0.125;
+                    }
+                    yoff += 0.125;
+                }
+
+                p.background(255);
+                p.translate(0, 50);
+                p.rotateX(p.PI / 3);
+                p.fill(255, 255, 255, 50);
+                p.translate(-w / 2, -h / 2);
+                p.frameRate(30);
+
+                for (let y = 0; y < rows - 1; y++) {
+                    p.beginShape(p.TRIANGLE_STRIP);
+
+                    for (let x = 0; x < cols; x++) {
+                        p.vertex(x * scl, y * scl, terrain[x][y]);
+                        p.vertex(x * scl, (y + 1) * scl, terrain[x][y + 1]);
+                    }
+
+                    p.endShape();
+                }
+            }
+        };
+
+        new p5(sketch, '3d');
+    </script>
+</body>
+
+</html>
