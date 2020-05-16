@@ -2,6 +2,7 @@ body {
     font-family: 'DM Mono', monospace;
     margin: 0;
     overflow: hidden;
+    font-size: 90%;
 }
 
 canvas {
