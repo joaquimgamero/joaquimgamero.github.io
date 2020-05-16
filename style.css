@@ -1,11 +1,13 @@
 body {
     font-family: 'DM Mono', monospace;
+    margin: 0;
 }
 
 canvas {
     -webkit-flex: 1 0 auto;
     flex: 1 0 auto;
-    padding-left: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 a {
@@ -20,11 +22,16 @@ h1 {
     margin: 0;
 }
 
+.perlin {
+    width: 50%;
+}
+
 .flex-container {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
+    height: 100%;
 }
 
 .flex-item {
@@ -33,12 +40,17 @@ h1 {
 }
 
 .main {
-    padding-left: 25px;
+    padding: 15px;
+    padding-top: 5px;
     max-width: 35vw;
 }
 
 .subtitle {
     margin-bottom: 5vh;
+}
+
+.title-break {
+    margin-top: 7vh;
 }
 
 .skill {
@@ -51,6 +63,5 @@ h1 {
 }
 
 .social-icon {
-    height: 4%;
-    margin-bottom: 5vh;
+    height: 2vh;
 }

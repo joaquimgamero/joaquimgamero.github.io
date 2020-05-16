@@ -12,18 +12,21 @@
 
 <body>
     <div class="flex-container">
-        <div id='3d'></div>
+        <div class="perlin" id='3d'></div>
         <div class="flex-item">
             <div class="main">
                 <h1>I'm Joaquim Gamero</h1>
                 <h3 class="subtitle">
-                    I'm a full-stack developer 👽
+                    👽 I'm a full-stack developer
                 </h3>
                 <p>
                     I like building stuff, specially with <strong>JavaScript</strong> and <strong>C#</strong>. I like
                     data visualization, like
                     this 3D perlin noise terrain generator you can see on the left.
                 </p>
+                <h3>
+                    You can view here <a href="JoaquimGamero2020.pdf" target="_blank">my résumé</a>.
+                </h3>
                 <p>
                     I've been working on tech companies as a developer for almost three years now. This time has
                     yielded a diverse skillset that touches almost everything in the DevOps cycle. Here's a partial
@@ -39,18 +42,33 @@
                     <span class="skill">Cloud platforms (Azure)</span>
                     <span class="skill">Continuous testing</span>
                 </p>
-                <h3>
-                    You can view here <a href="JoaquimGamero2020.pdf" target="_blank">my résumé</a>.
+
+                <h3 class="title-break">
+                    Personal projects
                 </h3>
-                <h3>
-                    To get in touch, write to <a href="mailto:gb.joaquim@gmail.com">gb.joaquim@gmail.com</a>.
-                </h3>
+                <p>
+                    <a href="http://joaquimgamero.io/pathfinding-visualizer" target="_blank"><strong>Pathfinding
+                            visualizer</strong></a>
+                    <br>
+                    A fun, 100% desktop oriented pathfinding algorithms visualizer and playground, built on Angular
+                    9. You can see these algorithms in action and observe the differences
+                    between them under two
+                    dimensional, customizable maps.
+                </p>
                 <div>
-                    <a href="https://github.com/joaquimgamero"><img class="social-icon"
-                            src="img/GitHub-Mark-32px.png"></a>
-                    <a href="https://www.linkedin.com/in/joaquim-gamero-burgos/"><img class="social-icon"
-                            src="img/LI-In-Bug.png"></a>
+                    <hr>
+                    <h3>
+                        To get in touch write to <a href="mailto:gb.joaquim@gmail.com">gb.joaquim@gmail.com</a>, or
+                        click the icons below.
+                    </h3>
+                    <div>
+                        <a href="https://github.com/joaquimgamero" target="_blank"><img class="social-icon"
+                                src="img/GitHub-Mark-32px.png"></a>
+                        <a href="https://www.linkedin.com/in/joaquim-gamero-burgos/"><img class="social-icon"
+                                src="img/LI-In-Bug.png"></a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -127,6 +145,12 @@
         };
 
         new p5(sketch, '3d');
+
+        // Adapt to full screen
+        window.onload = function () {
+            document.getElementById("defaultCanvas0").style.height = "100%";
+            document.getElementById("defaultCanvas0").style.width = "100%";
+        }
     </script>
 </body>
 
