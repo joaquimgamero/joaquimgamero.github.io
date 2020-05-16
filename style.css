@@ -1,6 +1,7 @@
 body {
     font-family: 'DM Mono', monospace;
     margin: 0;
+    overflow: hidden;
 }
 
 canvas {
@@ -37,12 +38,13 @@ h1 {
 .flex-item {
     -webkit-flex: none;
     flex: none;
+    overflow: auto;
 }
 
 .main {
     padding: 15px;
     padding-top: 5px;
-    max-width: 35vw;
+    max-width: 50vw;
 }
 
 .subtitle {
